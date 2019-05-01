@@ -18,7 +18,7 @@ public class MathController {
     @ResponseBody
     public String subtract(@PathVariable int num1, @PathVariable int num2) {
         int difference = num2 - num1;
-        return num1 + " - " + num2 + " equals: " + difference;
+        return num2 + " - " + num1 + " equals: " + difference;
     }
 
     @GetMapping("/multiply/{num1}/and/{num2}")
