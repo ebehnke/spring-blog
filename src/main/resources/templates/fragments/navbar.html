@@ -2,22 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 
-    <th:block th:fragment="navbar" id="Navbar1">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Spring Blog</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/hello/erik">Hello</a></li>
-                <li><a href="/roll-dice">Roll-Dice</a></li>
-                <li><a href="/posts">Posts</a></li>
-                <!--<li><a href="/posts/create">posts/create</a></li>-->
-                <!--<li><a th:href="/posts/1"></a></li>-->
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
-        </div>
-    </th:block>
+
+<th:block th:fragment="navbar" id="Navbar1">
+
+    <div class="nav-wrapper">
+        <div class="col s1"></div>
+        <a href="#" class="brand-logo" style="margin-left: 1rem;">Spring Blog</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/hello/erik">Hello</a></li>
+            <li><a href="/roll-dice">Roll-Dice</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <!--<li><a href="/posts/create">posts/create</a></li>-->
+            <!--<li><a th:href="/posts/1"></a></li>-->
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+</th:block>
+
 
 </body>
 </html>

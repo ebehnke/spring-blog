@@ -6,20 +6,40 @@
 <nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
 
 
+<div class="row"></div>
 <div class="container">
+<div class="row">
+<div class="col s12">
+<ul>
+    <li th:each="post : ${posts}">
 
-    <div th:each="post : ${posts}">
-        <h5>
-            <span th:text="${post.getTitle()}"></span>
-        </h5>
-        <h6>
-            <span th:text="${post.getBody()}"></span>
-        </h6>
-    </div>
+        <div class="card blue-grey hoverable">
+            <div class="card-content white-text" style="padding-top: 16px;">
+                <span class="card-title">
+                    <span th:text="${post.getTitle()}" ></span>
+                </span>
+                <p>
+                <span class="truncate">
+                    <span th:text="${post.getBody()}"></span>
+                </span>
+                </p>
+            </div>
+        </div>
 
+    </li>
+</ul>
+
+</div>
+</div>
 </div>
 
 
 <footer><th:block th:replace="fragments/footer :: footer"/></footer>
 </body>
 </html>
+
+<!--
+<li th:each="name : ${names}">
+    <a href="#" th:text="${name}"></a>
+</li>
+-->
