@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><th:block th:replace="fragments/head :: header('Hello')" /></head>
+<body>
+<header>hello.html</header>
+<nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
+
+
+<div class="container">
+
+    <h1>Welcome <span th:text="${name}"></span></h1>
+
+    <button th:if="${admin}">Grade Students</button>
+
+    <ul>
+        <li th:each="name : ${names}">
+            <a href="#" th:text="${name}"></a>
+        </li>
+    </ul>
+
+</div>
+
+
+<footer>
+    <th:block th:replace="fragments/footer :: footer" />
+</footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+html {
+    background: ghostwhite;
+}
+
+nav>ul li {
+    list-style: none;
+    display: inline;
+    text-align: center;
+}
+
+footer ul li {
+    list-style: none;
+    display: inline;
+    text-align: center;
+}

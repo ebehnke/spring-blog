@@ -1,35 +1,46 @@
 package com.codeup.blog;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class PostController {
+    List<Post> posts = new ArrayList<>();
+
     @GetMapping("/posts")
-    @ResponseBody
-    public String index() {
-        return "index of blog posts";
+    public String viewPosts(Model model) {
+
+//        Post postsTest = new Post("postTest title", "postsTest body........");
+//        posts.add(postsTest);
+        return "/posts/index";
     }
 
     @GetMapping("/posts/{id}")
-    @ResponseBody
-    public String postId(@PathVariable int id) {
-        return "viewing post #" + id;
+    public String viewPost(@PathVariable Integer id, Model model) {
+        model.addAttribute("id", id);
+
+        Post post1 = new Post("post1 title", "post1 body.......");
+        model.addAttribute("post1", post1);
+        posts.add(post1);
+
+        return "/posts/show";
     }
 
     @GetMapping("/posts/create")
-    @ResponseBody
-    public String create() {
-        return "create post form";
+    public String showCreatePost() {
+        return "/posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String postedPost() {
-        return "postedPost works";
+    public String createPost() {
+        return "/posts/create";
     }
 
 }

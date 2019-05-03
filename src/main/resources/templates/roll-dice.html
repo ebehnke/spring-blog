@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><th:block th:replace="fragments/head :: header('Roll-dice')" /></head>
+<body>
+<header>roll-dice.html</header>
+<nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
+
+
+<div class="container">
+
+    <h1>This is the roll-dice page.</h1>
+
+    <a href="/roll-dice/1" class="waves-effect waves-light btn-small">Predict 1</a>
+    <a href="/roll-dice/2" class="waves-effect waves-light btn-small">Predict 2</a>
+    <a href="/roll-dice/3" class="waves-effect waves-light btn-small">Predict 3</a>
+    <a href="/roll-dice/4" class="waves-effect waves-light btn-small">Predict 4</a>
+    <a href="/roll-dice/5" class="waves-effect waves-light btn-small">Predict 5</a>
+    <a href="/roll-dice/6" class="waves-effect waves-light btn-small">Predict 6</a>
+
+
+    <div th:if="${randomNum != 0}">
+        <h1>Number guessed is:  <span th:text="${urlNum}"></span></h1>
+        <h2>Rolled number: <span th:text="${randomNum}"></span></h2>
+        <h2 th:if="${correctPrediction == true}">You were correct.</h2>
+    </div>
+
+</div>
+
+
+<footer><th:block th:replace="fragments/footer :: footer" /></footer>
+</body>
+</html>

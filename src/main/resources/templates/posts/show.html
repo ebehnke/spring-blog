@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><th:block th:replace="fragments/head :: header('Show Post')" /></head>
+<body>
+<header>posts/show.html</header>
+<nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
+
+
+<div class="container">
+
+    <h5>
+        <span th:text="${post1.getTitle()}"></span>
+    </h5>
+    <h6>
+        <span th:text="${post1.getBody()}"></span>
+    </h6>
+
+</div>
+
+
+<footer><th:block th:replace="fragments/footer :: footer"/></footer>
+</body>
+</html>
