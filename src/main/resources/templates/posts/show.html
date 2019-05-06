@@ -14,15 +14,14 @@
     <div class="card blue-grey">
         <div class="card-content white-text" style="padding-bottom: 0; padding-top: 16px;">
             <span class="card-title">
-                <span th:text="${post1.getTitle()}"></span>
+                <span th:text="${postId.getTitle()}"></span>
             </span>
             <p>
-                <span th:text="${post1.getBody()}"></span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, accusamus asperiores assumenda et, illum, laudantium minima nulla pariatur praesentium provident reiciendis reprehenderit. Dolore harum officiis perferendis quod sapiente tenetur unde!
+                <span th:text="${postId.getBody()}"></span>
             </p>
             <div class="card-action">
                 <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
+                <a href="/posts/email"><i class="tiny material-icons">email</i></a>
             </div>
         </div>
     </div>

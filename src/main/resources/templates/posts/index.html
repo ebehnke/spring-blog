@@ -13,14 +13,16 @@
 <ul>
     <li th:each="post : ${posts}">
 
-        <div class="card blue-grey hoverable">
+        <div class="card green lighten-2 hoverable">
             <div class="card-content white-text" style="padding-top: 16px;">
                 <span class="card-title">
-                    <span th:text="${post.getTitle()}" ></span>
+                    <a th:href="@{'/posts/'+${post.getId()}}">
+                        <span th:text="${post.title}" ></span>
+                    </a>
                 </span>
                 <p>
                 <span class="truncate">
-                    <span th:text="${post.getBody()}"></span>
+                    <span th:text="${post.body}"></span>
                 </span>
                 </p>
             </div>
