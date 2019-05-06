@@ -23,9 +23,18 @@ public class Post {
         this.id = id;
     }
 
+    public Post(String title, String body, String authorEmail) {
+        this.title = title;
+        this.body = body;
+        this.authorEmail = authorEmail;
+    }
+
     public Post(String title, String body) {
         this.title = title;
         this.body = body;
+    }
+
+    public Post() {
     }
 
     public String getAuthorEmail() {

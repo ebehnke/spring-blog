@@ -3,17 +3,26 @@
 <body>
 
 
-<th:block th:fragment="footer" id="Footer1">
+<th:block th:fragment="includes" id="includes1">
 
     <!-- jQuery -->
      <script src="js/jquery-3.3.1.js"></script>
-    <!-- Custom JS -->
-    <!-- <script>
+
+
+    <!-- Materialize JS Initializers -->
+     <script>
     "use strict";
     $(document).ready(function () {
     console.warn( 'The DOM has finished loading in HTML!' );
+
+        $('input#input_text, textarea#textarea2').characterCounter();
+
+
+
+
+
     });
-    </script> -->
+    </script>
     <!-- Popper.js -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
     <!-- Bootstrap JS -->

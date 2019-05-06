@@ -1,11 +1,11 @@
 package com.codeup.blog;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.apache.commons.collections4.IteratorUtils;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,26 +21,58 @@ public class PostController {
 
     @GetMapping("/posts/index")
     public String index(Model model) {
-        model.addAttribute("posts", postDao.findAll());
+
+//        Post postTest = new Post("postTest Title", "postTest description....", "postTest@email.com");
+//        postDao.save(postTest);
+
+//        List<Post> posts = IteratorUtils.toList(postDao.findAll().iterator());
+//
+//        for (Post post : posts) {
+//            System.out.println(post.getId());
+//            System.out.println(post.getTitle());
+//        }
+
+        model.addAttribute("postsTest", postDao.findAll());
         return "/posts/index";
+    }
+
+    @GetMapping("/posts/delete/{id}")
+    public String remove(@PathVariable long id){
+
+//        model.addAttribute("id", id);
+
+        postDao.deleteById(id);
+
+//        List<Post> posts = IteratorUtils.toList(postDao.findAll().iterator());
+//
+//        for (Post post : posts) {
+//        id = post.getId();
+//            if (post.getId() == id) {
+//                postDao.deleteById(id);
+//                model.addAttribute("id", id);
+//            }
+//        }
+
+        return "/posts/index";
+
     }
 
     @GetMapping("/posts")
     public String viewPosts(Model model) {
-        List<Post> posts = new ArrayList<>();
+//        List<Post> posts = new ArrayList<>();
 
         //inject posts//
-        for (int i = 1; i<=5; i++){
-            Post postLoop = new Post(("loopTitle - " + i), ("loopBody - " + i),("loopEmail@post" + i + ".com"), i);
-            posts.add(postLoop);
-        }
+//        for (int i = 1; i<=5; i++){
+//            Post postLoop = new Post(("loopTitle - " + i), ("loopBody - " + i),("loopEmail@post" + i + ".com"), i);
+//            posts.add(postLoop);
+//        }
 
 //        Post post1 = new Post("postTitle1", "postBody1.........", 1);
 //        posts.add(post1);
 //        Post post2 = new Post("postTitle2", "postBody2.........", 2);
 //        posts.add(post2);
 
-        model.addAttribute("posts", posts);
+//        model.addAttribute("posts", posts);
         return "/posts/index";
     }
 
@@ -52,6 +84,11 @@ public class PostController {
                 id);
         model.addAttribute("postId", postId);
 
+
+//        Post post = postDao.findOne(id);
+
+
+
         return "/posts/show";
     }
 
@@ -61,9 +98,33 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String createPost() {
-        return "/posts/create";
+    public String createPost(@RequestParam String title, @RequestParam String body) {
+        Post newPost = new Post(title, body);
+        postDao.save(newPost);
+        return "/posts/index";
     }
+
+    @GetMapping("/posts/{id}/edit")
+    public String showEditPost(@PathVariable long id, Model model){
+        Post post = postDao.findOne(id);
+
+
+
+        model.addAttribute("post", post);
+        return "posts/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String editPost(@RequestParam String title, @RequestParam String body, @RequestParam String id,
+                           @PathVariable long id1){
+        Post post = postDao.findOne(Long.valueOf(id));
+        post.setTitle(title);
+        post.setBody(body);
+        postDao.save(post);
+
+        return "posts/index";
+    }
+
 
     //// services
     @PostMapping("/posts/email")
@@ -76,5 +137,6 @@ public class PostController {
 
         return "/posts/email";
     }
+
 
 }
