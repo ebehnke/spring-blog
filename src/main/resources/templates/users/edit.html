@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><th:block th:replace="fragments/head :: header('Edit Post')" /></head>
+<body>
+<header>posts/edit.html</header>
+<nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
+
+
+<div class="container">
+
+<div class="input-field">
+    <form th:action="@{'/posts/'+${post.id}+'/edit'}" method="post">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" th:value="${post.title}" />
+
+        <label for="body">Body</label>
+        <textarea type="textarea" name="body" id="body" th:field="${post.body}" class="materialize-textarea"></textarea>
+        <input type="hidden" th:value="${post.id}" />
+
+        <button type="submit" class="btn">Submit</button>
+
+    </form>
+</div>
+
+</div>
+
+
+<footer><th:block th:replace="fragments/footer :: footer" /></footer>
+<th:block th:replace="fragments/includes :: includes" />
+</body>
+</html>

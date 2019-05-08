@@ -59,7 +59,6 @@ public class PostController {
 //        user = usersRepo.findOne(2);
 //        usersRepo.save(author);
 
-
 //        Post newPost = new Post(title, body, usersRepo.findOne((long)1));
 //        UserController usersRepo;
         post.setAuthor(usersRepo.findOne(1L));
@@ -77,6 +76,7 @@ public class PostController {
 
     @PostMapping("/posts/{id}/edit")
     public String editPost(@PathVariable Long id, @RequestParam String title, @RequestParam String body){
+//    public String editPost(@PathVariable Long id, @ModelAttribute Post post) {
         Post post = postsRepo.findOne(id);
         post.setTitle(title);
         post.setBody(body);
