@@ -19,7 +19,7 @@
         <!--</form>-->
 <div class="col s12"></div>
 <ul>
-    <li th:each="post : ${postsTest}">
+    <li th:each="post : ${posts}">
 
         <div class="card green lighten-2 hoverable">
             <div class="card-content white-text" style="padding-top: 16px;">
@@ -36,10 +36,6 @@
                     <span th:text="${post.body}"></span>
                 </span>
                 </p>
-                <div>
-                    <a th:href="@{'/posts/delete/'+${post.getId()}}"
-                       class="waves-effect waves-light btn-small green accent-4">Delete Post</a>
-                </div>
             </div>
         </div>
 

@@ -1,8 +1,6 @@
-package com.codeup.blog;
+package com.codeup.blog.models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @Entity
 @Table(name="posts")
@@ -13,20 +11,27 @@ public class Post {
     private String title;
     @Column(nullable = false)
     private String body;
-    @Column (length = 100)
-    private String authorEmail;
+    @ManyToOne
+//    @JoinColumns({
+//        @JoinColumn(name = "author_id", referencedColumnName="id"),
+//        @JoinColumn(name = "author_username", referencedColumnName="username")
+//    })
+    @JoinColumn (name = "author_id", referencedColumnName="id")
+    private User author;
 
-    public Post(String title, String body, String authorEmail, long id) {
+    public Post(String title, String body, User author) {
         this.title = title;
         this.body = body;
-        this.authorEmail = authorEmail;
+        this.author = author;
+    }
+
+    public Post(String title, String body, long id) {
+        this.title = title;
+        this.body = body;
         this.id = id;
     }
 
-    public Post(String title, String body, String authorEmail) {
-        this.title = title;
-        this.body = body;
-        this.authorEmail = authorEmail;
+    public Post() {
     }
 
     public Post(String title, String body) {
@@ -34,15 +39,12 @@ public class Post {
         this.body = body;
     }
 
-    public Post() {
+    public User getAuthor() {
+        return author;
     }
 
-    public String getAuthorEmail() {
-        return authorEmail;
-    }
-
-    public void setAuthorEmail(String authorEmail) {
-        this.authorEmail = authorEmail;
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     public long getId() {

@@ -14,13 +14,13 @@
         <input type="text" name="title" id="title" th:value="${post.title}" />
 
         <label for="body">Body</label>
-        <textarea type="textarea" name="body" id="body" th:field="${post.body}" ></textarea>
-        <button type="submit" class="btn">Create</button>
-
+        <textarea type="textarea" name="body" id="body" th:field="${post.body}" class="materialize-textarea"></textarea>
         <input type="hidden" th:value="${post.id}" />
+
+        <button type="submit" class="btn">Submit</button>
+
     </form>
 </div>
-
 
 </div>
 
