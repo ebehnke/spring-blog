@@ -1,24 +1,27 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><th:block th:replace="fragments/head :: header('Edit Post')" /></head>
+<head><th:block th:replace="fragments/head :: header('Edit User')" /></head>
 <body>
-<header>posts/edit.html</header>
+<header>users/edit.html</header>
 <nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
 
 
 <div class="container">
 
 <div class="input-field">
-    <form th:action="@{'/posts/'+${post.id}+'/edit'}" method="post">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" th:value="${post.title}" />
+    <form th:action="@{'/users/'+${user.id}+'/edit'}" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" th:value="${user.username}" />
 
-        <label for="body">Body</label>
-        <textarea type="textarea" name="body" id="body" th:field="${post.body}" class="materialize-textarea"></textarea>
-        <input type="hidden" th:value="${post.id}" />
+        <label for="password">Password</label>
+        <input name="password" id="password" th:field="${user.password}" />
+
+        <label for="email">Email</label>
+        <input name="email" id="email" th:field="${user.email}" />
+
+        <input type="hidden" th:value="${user.id}" />
 
         <button type="submit" class="btn">Submit</button>
-
     </form>
 </div>
 

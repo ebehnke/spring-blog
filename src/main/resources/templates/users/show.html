@@ -1,8 +1,8 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><th:block th:replace="fragments/head :: header('Show Post')" /></head>
+<head><th:block th:replace="fragments/head :: header('Show User')" /></head>
 <body>
-<header>posts/show.html</header>
+<header>users/show.html</header>
 <nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
 
 
@@ -14,22 +14,19 @@
     <div class="card blue-grey">
         <div class="card-content white-text" style="padding-bottom: 0; padding-top: 16px;">
             <span class="card-title">
-                <span th:text="${post.title}"></span>
+                <span th:text="${user.username}"></span>
             </span>
             <p>
-                <span th:text="${post.body}"></span>
+                <span th:text="${user.password}"></span>
             </p>
             <p>
-                <!--<span th:text="${user.getEmail()}"></span>-->
-                <span th:text="${post.author.email}"></span>
+                <span th:text="${user.email}"></span>
             </p>
             <div class="card-action">
-                <a th:href="@{'/posts/'+${post.getId()}+'/edit'}">
+                <a th:href="@{'/users/'+${user.getId()}+'/edit'}">
                     <i class="small material-icons">edit</i></a>
-                <a th:href="@{'/posts/'+${post.getId()}+'/delete/'}">
+                <a th:href="@{'/users/'+${user.getId()}+'/delete/'}">
                     <i class="small material-icons">delete</i></a>
-                <a href="/posts/email">
-                    <i class="small material-icons">email</i></a>
             </div>
         </div>
     </div>

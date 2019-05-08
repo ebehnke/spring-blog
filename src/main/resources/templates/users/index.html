@@ -1,39 +1,33 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><th:block th:replace="fragments/head :: header('Posts Index')" /></head>
+<head><th:block th:replace="fragments/head :: header('Users Index')" /></head>
 <body>
-<header>posts/index.html</header>
+<header>users/index.html</header>
 <nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
 
 
 <div class="row"></div>
 <div class="container">
 <div class="row">
-        <!--<form th:action="@{'/posts/delete/'+${id}}" method="POST">-->
-            <!--<input type="text" id="${inputId}" class="validate" />-->
-            <!--<label th:for=>ID</label>-->
-            <!--<input type="text" placeholder="Enter ID#..." th:id="${id}"/>-->
-            <!--<button type="submit" value="Delete Post" class="btn" id="delete-btn">Delete</button>-->
-            <!--<label for="delete-btn"></label>-->
 
-        <!--</form>-->
+
 <div class="col s12"></div>
 <ul>
-    <li th:each="post : ${posts}">
+    <li th:each="user : ${users}">
 
         <div class="card green lighten-2 hoverable">
             <div class="card-content white-text" style="padding-top: 16px;">
                 <span class="card-title">
-                    <a th:href="@{'/posts/'+${post.getId()}}">
-                        <span th:text="${post.getId()}"></span>.
-                        <span th:text="${post.title}" ></span>
+                    <a th:href="@{'/users/'+${user.getId()}}">
+                        <span th:text="${user.getId()}"></span>.
+                        <span th:text="${user.getUsername()}" ></span>
                     </a>
                 </span>
                 <span>
                 </span>
                 <p>
                 <span class="truncate">
-                    <span th:text="${post.body}"></span>
+                    <span th:text="${user.getPassword()}"></span>
                 </span>
                 </p>
             </div>

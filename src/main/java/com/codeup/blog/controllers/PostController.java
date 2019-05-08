@@ -20,7 +20,7 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-    public String index(Model model) {
+    public String showPosts(Model model) {
 //        List<Post> posts = IteratorUtils.toList(postsRepo.findAll().iterator());
 //
 //        for (Post post : posts) {
@@ -33,9 +33,9 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}")
-    public String viewPost(@PathVariable long id, Model model) {
+    public String showPost(@PathVariable Long id, Model model) {
 
-        User author = usersRepo.findOne((long)1);
+        User author = usersRepo.findOne(1L);
         model.addAttribute("author", author);
 
         Post post = postsRepo.findOne(id);
@@ -67,11 +67,11 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}/edit")
-    public String showEditPost(@PathVariable long id, Model model){
+    public String showEditPost(@PathVariable Long id, Model model){
         Post post = postsRepo.findOne(id);
 
         model.addAttribute("post", post);
-        return "posts/edit";
+        return "/posts/edit";
     }
 
     @PostMapping("/posts/{id}/edit")
