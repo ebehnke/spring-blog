@@ -15,21 +15,28 @@
 <ul>
     <li th:each="user : ${users}">
 
-        <div class="card green lighten-2 hoverable">
+        <div class="card grey lighten-1 hoverable">
             <div class="card-content white-text" style="padding-top: 16px;">
                 <span class="card-title">
+                    Username:
                     <a th:href="@{'/users/'+${user.getId()}}">
-                        <span th:text="${user.getId()}"></span>.
                         <span th:text="${user.getUsername()}" ></span>
                     </a>
                 </span>
                 <span>
+                    ID:
+                    <span th:text="${user.getId()}"></span>.
                 </span>
-                <p>
+                <br />
+                <span>
+                    Email:
+                    <span th:text="${user.getEmail()}"></span>.
+                </span>
+                <br />
                 <span class="truncate">
+                    Password:
                     <span th:text="${user.getPassword()}"></span>
                 </span>
-                </p>
             </div>
         </div>
 

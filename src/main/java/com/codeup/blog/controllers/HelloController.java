@@ -11,13 +11,6 @@ import java.util.List;
 @Controller
 class HelloController {
 
-    @GetMapping("/hello")
-    public String sayHello(){
-        return "hello";
-    }
-
-
-
     @GetMapping("/hello/{name}")
     public String sayHello(@PathVariable String name, Model model) {
         List<String> names = new ArrayList();

@@ -21,21 +21,23 @@
 <ul>
     <li th:each="post : ${posts}">
 
-        <div class="card green lighten-2 hoverable">
+        <div class="card grey lighten-1 hoverable">
             <div class="card-content white-text" style="padding-top: 16px;">
                 <span class="card-title">
+                    Title:
                     <a th:href="@{'/posts/'+${post.getId()}}">
-                        <span th:text="${post.getId()}"></span>.
                         <span th:text="${post.title}" ></span>
                     </a>
                 </span>
                 <span>
+                    ID:
+                    <span th:text="${post.getId()}"></span>.
                 </span>
-                <p>
+                <br />
                 <span class="truncate">
+                    Body:
                     <span th:text="${post.body}"></span>
                 </span>
-                </p>
             </div>
         </div>
 

@@ -1,33 +1,13 @@
 html {
-    background: #e8f5e9;
+    background: #eeeeee;
     color: #212121;
 }
 
 nav ul li {
     list-style: none;
-    /*display: inline-block;*/
-    text-align: center;
 }
 
 footer ul li {
     list-style: none;
     display: inline;
-    text-align: center;
 }
-
-i {
-    display: inline!important;
-    align-items: center!important;
-    align-self: center!important;
-    align-content: center!important;
-    justify-content: center!important;
-    justify-items: center!important;
-    justify-self: center!important;
-    horiz-align: center!important;
-    vertical-align: center!important;
-    alignment: center!important;
-}
-
-/*.card-content {*/
-    /*padding-bottom: 0;*/
-/*}*/

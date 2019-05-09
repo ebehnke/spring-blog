@@ -16,13 +16,13 @@ public interface PostRepository extends CrudRepository<Post, Long> {
     //void delete(Post post);
 
     @Query("from Post post where post.id like ?1")
-    Post getPostById(long id);
+    Post getPostById(Long id);
 
 
 //    @Modifying
     @Transactional
 //    @Query("delete from Post post where post.id = ?1")
-    void deleteById(long id);
+    void deleteById(Long id);
 
 
 }

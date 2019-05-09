@@ -14,21 +14,37 @@
     <div class="card blue-grey">
         <div class="card-content white-text" style="padding-bottom: 0; padding-top: 16px;">
             <span class="card-title">
+                Username:
                 <span th:text="${user.username}"></span>
             </span>
             <p>
+                Password:
                 <span th:text="${user.password}"></span>
             </p>
             <p>
+                Email:
                 <span th:text="${user.email}"></span>
             </p>
             <div class="card-action">
                 <a th:href="@{'/users/'+${user.getId()}+'/edit'}">
-                    <i class="small material-icons">edit</i></a>
+                    <i class="fas fa-user-edit"></i></a>
                 <a th:href="@{'/users/'+${user.getId()}+'/delete/'}">
-                    <i class="small material-icons">delete</i></a>
+                    <i class="fas fa-trash-alt"></i></a>
             </div>
         </div>
+    </div>
+
+    <div>
+        <ul>
+            Posts:
+            <li th:each="post : ${user.posts}"  style="list-style: none; display: inline;">
+                <a th:href="@{'/posts/' + ${post.id}}">
+                    <span th:text="${post.title}"></span>
+                </a>
+                <span th:text="${post.id}"></span>
+                |
+            </li>
+        </ul>
     </div>
 
 </div>

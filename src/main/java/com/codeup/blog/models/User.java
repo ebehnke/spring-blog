@@ -8,7 +8,7 @@ import java.util.List;
 public class User {
 
     @Id @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String username;
@@ -38,11 +38,18 @@ public class User {
         this.posts = posts;
     }
 
-    public long getId() {
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

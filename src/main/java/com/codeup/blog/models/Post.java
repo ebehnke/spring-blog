@@ -2,11 +2,14 @@ package com.codeup.blog.models;
 
 import javax.persistence.*;
 
+// create constructors for each instance (for edit dont construct user, etc.)
+
+
 @Entity
 @Table(name="posts")
 public class Post {
     @Id @GeneratedValue
-    private long id;
+    private Long id;
     @Column(nullable = false, length = 100, name = "title")
     private String title;
     @Column(nullable = false)
@@ -19,25 +22,42 @@ public class Post {
     @JoinColumn (name = "author_id", referencedColumnName="id")
     private User author;
 
+    // C in CRUD
+    public Post() {
+    }
+
+    // R in CRUD
+    public Post(Long id, String title, String body, User author) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.author = author;
+    }
+
+    // U in CRUD
     public Post(String title, String body, User author) {
         this.title = title;
         this.body = body;
         this.author = author;
     }
 
-    public Post(String title, String body, long id) {
-        this.title = title;
-        this.body = body;
+    // D in CRUD
+    public Post(Long id) {
         this.id = id;
     }
 
-    public Post() {
+    public Post(String title, String body, Long id) {
+        this.title = title;
+        this.body = body;
+        this.id = id;
     }
 
     public Post(String title, String body) {
         this.title = title;
         this.body = body;
     }
+
+
 
     public User getAuthor() {
         return author;
@@ -47,11 +67,11 @@ public class Post {
         this.author = author;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
