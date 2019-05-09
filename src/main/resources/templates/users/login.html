@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><th:block th:replace="fragments/head :: header('Create New Post')" /></head>
+<head><th:block th:replace="fragments/head :: header('Login')" /></head>
 <body>
-<header>posts/create.html</header>
+<header>users/create.html</header>
 <nav><th:block th:replace="fragments/navbar :: navbar" /></nav>
 
 
@@ -12,26 +12,33 @@
 
     <div class="row">
         <div class="col s12">
-            <h5>Create Post</h5>
+            <h5>Log In</h5>
         </div>
     </div>
 
-    <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+    <div th:if="${param.error}">
+        Invalid Username and Password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+    <form th:action="@{/login}" th:method="post">
         <div class="row">
             <div class="input-field col s12">
-                <input th:field="*{title}" id="title" class="validate" name="title" type="text" />
-                <label for="title">Title</label>
+                <input id="username" name="username" type="text" class="validate" />
+                <label for="username">Username</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="body" id="body" th:field="*{body}" class="materialize-textarea validate"></textarea>
-                <label for="body">Body</label>
+                <input id="password" name="password" type="password" class="validate" />
+                <label for="password">Password</label>
             </div>
         </div>
         <div class="row">
             <div class="col s12">
-                <input type="submit" class="btn blue-grey darken-2" />
+                <input type="submit" value="Log In" class="btn blue-grey darken-2" />
             </div>
         </div>
     </form>
