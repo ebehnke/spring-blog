@@ -30,3 +30,9 @@ HELP.md
 
 ### Additional ###
 src/main/resources/application.properties
+
+## GRADLE ##
+*.gradle
+gradlew
+gradlew.bat
+gradle/
