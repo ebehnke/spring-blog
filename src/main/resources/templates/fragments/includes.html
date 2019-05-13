@@ -12,13 +12,59 @@
             crossorigin="anonymous">
     </script>
 
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <!-- Materialize JS Initializers -->
      <script>
-    "use strict";
-    $(document).ready(function () {
+    // "use strict";
+    // $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function() {
     console.warn( 'The DOM has finished loading in HTML!' );
 
-        $('input#input_text, textarea#textarea2').characterCounter();
+    var Time = document.querySelectorAll('.timepicker');
+    var openTime = M.Timepicker.init(Time, {
+        // twelveHour: false,
+        autoClose: true
+    });
+
+    var Calendar = document.querySelectorAll('.datepicker');
+    M.Datepicker.init(Calendar, {
+        format:'yyyy-mm-dd',
+        autoClose: true,
+        onClose: openTime
+    });
+
+
+        // var elems = document.querySelectorAll('.datepicker');
+
+
+
+        // var instance = M.Datepicker.getInstance(elem);
+
+        // var elems = document.querySelectorAll('.datepicker');
+        // var instances = M.Datepicker.init(elems, options);
+
+        // instances.open().setDate(new Date());
+
+        // M.updateTextFields();
+
+        // $('input#input_text, textarea#textarea2').characterCounter();
+        // M.textareaAutoResize($('#textarea1'));
+
+
+        // $('.timepicker').timepicker();
+
+        // $('.datepicker').datepicker()
+        // $('.datepicker').pickadate({
+        //     selectMonths: true, // Creates a dropdown to control month
+        //     selectYears: 15, // Creates a dropdown of 15 years to control year,
+        //     today: 'Today',
+        //     clear: 'Clear',
+        //     close: 'Ok',
+        //     closeOnSelect: false // Close upon selecting a date,
+        // });
+
 
     });
     </script>
