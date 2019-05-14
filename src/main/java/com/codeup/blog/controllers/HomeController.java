@@ -53,6 +53,10 @@ public class HomeController {
         Post savedPost = postsRepo.save(postToSaved);
 
 
+        System.out.println(savedPost.getBody());
+
+
+
 
 
 //        model.addAttribute("datepicker1", datepicker1);

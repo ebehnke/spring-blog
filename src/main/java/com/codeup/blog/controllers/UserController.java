@@ -46,18 +46,6 @@ public class UserController {
         return "/users/show";
     }
 
-//    @GetMapping("/users/create")
-//    public String showCreateUser(Model model) {
-//        model.addAttribute("user", new User());
-//        return "/users/create";
-//    }
-//
-//    @PostMapping("/users/create")
-//    public String createPost(@ModelAttribute User user) {
-//        usersRepo.save(user);
-//        return "redirect:/users";
-//    }
-
 //    @GetMapping("/users/{id}/edit")
 //    public String showEditUser(@PathVariable Long id, Model model) {
 //        User user = usersRepo.findOne(id);

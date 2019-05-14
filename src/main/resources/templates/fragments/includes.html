@@ -24,7 +24,7 @@
 
     var Time = document.querySelectorAll('.timepicker');
     var openTime = M.Timepicker.init(Time, {
-        // twelveHour: false,
+        twelveHour: false,
         autoClose: true
     });
 
@@ -36,34 +36,20 @@
     });
 
 
-        // var elems = document.querySelectorAll('.datepicker');
-
-
-
-        // var instance = M.Datepicker.getInstance(elem);
-
-        // var elems = document.querySelectorAll('.datepicker');
-        // var instances = M.Datepicker.init(elems, options);
-
-        // instances.open().setDate(new Date());
-
-        // M.updateTextFields();
-
-        // $('input#input_text, textarea#textarea2').characterCounter();
-        // M.textareaAutoResize($('#textarea1'));
-
-
-        // $('.timepicker').timepicker();
-
-        // $('.datepicker').datepicker()
-        // $('.datepicker').pickadate({
-        //     selectMonths: true, // Creates a dropdown to control month
-        //     selectYears: 15, // Creates a dropdown of 15 years to control year,
-        //     today: 'Today',
-        //     clear: 'Clear',
-        //     close: 'Ok',
-        //     closeOnSelect: false // Close upon selecting a date,
-        // });
+    var slider = document.getElementById('test-slider');
+    noUiSlider.create(slider, {
+        start: [17, 23],
+        connect: true,
+        step: .5,
+        orientation: 'horizontal', // 'horizontal' or 'vertical'
+        range: {
+            'min': 0,
+            'max': 24
+        },
+        format: wNumb({
+            decimals: 2
+        })
+    });
 
 
     });
